@@ -70,6 +70,13 @@ app.post("/join-room", async (req, res) => {
   });
 });
 
+// serve static files from the public directory
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.sendFile("public/index.html");
+});
+
 // Start the Express server
 app.listen(port, () => {
   console.log(`Express server running on port ${port}`);
